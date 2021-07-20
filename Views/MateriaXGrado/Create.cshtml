@@ -1,0 +1,43 @@
+﻿@model RegistroAlumnos.mxg_materiasxgrado
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h2> Nueva Materia por Grado</h2>
+@using (Html.BeginForm("Create", "MateriaXGrado", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class=" form-group">
+        @Html.LabelFor(model => model.mxg_id_grd, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mxg_id_grd, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.mxg_id_grd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class=" form-group">
+        @Html.LabelFor(model => model.mxg_id_mat, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mxg_id_mat, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.mxg_id_mat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Crear" class="btn btn-primary" />
+
+        </div>
+    </div>
+</div>
+
+}
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>

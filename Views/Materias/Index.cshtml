@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Materias";
+}
+
+<h2>@ViewBag.title</h2>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            @Html.ActionLink("Nuevo", "Create")
+        </p>
+
+        <table class="table">
+            <tr>
+                <th> Id </th>
+                <th> Nombre </th>
+
+            </tr>
+            @foreach (var Item in Model)
+            {
+                <tr>
+                    <td> @Item.mat_id</td>
+                    <td> @Item.mat_nombre</td>
+                   
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = Item.mat_id }),
+                        @Html.ActionLink("Eliminar", "Delete", new { id = Item.mat_id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

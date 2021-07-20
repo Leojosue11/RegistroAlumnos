@@ -1,0 +1,22 @@
+﻿@model RegistroAlumnos.mat_materia
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Registro</h2>
+<hr />
+<h3> ¿Estas seguro de eliminar el registro?</h3>
+
+<div>
+    <hr />
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Alumnos";
+}
+
+<h2>@ViewBag.title</h2>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            @Html.ActionLink("Nuevo", "Create")
+        </p>
+
+        <table class="table">
+            <tr>
+                <th> Id </th>
+                <th> Codigo </th>
+                <th> Nombre </th>
+                <th> Edad </th>
+                <th> Sexo </th>
+                <th> Grado </th>
+                <th> Observacion</th>
+            </tr>
+            @foreach (var Item in Model)
+            {
+                <tr>
+                    <td> @Item.alm_id</td>
+                    <td> @Item.alm_codigo</td>
+                    <td> @Item.alm_nombre</td>
+                    <td> @Item.alm_edad</td>
+                    <td> @Item.alm_sexo</td>
+                    <td> @Item.alm_id_grd</td>
+                    <td> @Item.alm_observacion</td>
+
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = Item.alm_id }),
+                        @Html.ActionLink("Eliminar", "Delete", new { id = Item.alm_id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
